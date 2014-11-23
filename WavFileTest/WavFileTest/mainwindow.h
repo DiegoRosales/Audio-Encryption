@@ -11,6 +11,7 @@
 #include "vigeneredialog.h"
 #include "desdialog.h"
 #include "AES/aesdialog.h"
+#include "rc4dialog.h"
 
 namespace Ui {
 class MainWindow;
@@ -41,6 +42,8 @@ private slots:
     void on_desButton_clicked();
 
     void on_aesButton_clicked();
+
+    void on_rc4Button_clicked();
 
 private:
     Ui::MainWindow *ui;

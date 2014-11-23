@@ -31,7 +31,7 @@ public:
         quint8 formatName[4]; // Format name ex. WAVE
 
     // fmt header
-        quint8 formatTag[4]; // Format tag ex. fmt+{null}
+        quint8 formatTag[4]; // Format tag ex. fmt||{0x00}
         quint32 formatLength; // Format data length ex. 16
         quint16 formatType; // Format type ex. 1 = PCM, 2 = Byte
         quint16 channelCount; // Channel count ex. 1

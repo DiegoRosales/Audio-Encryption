@@ -187,7 +187,19 @@ void MainWindow::on_desButton_clicked()
 void MainWindow::on_aesButton_clicked()
 {
     aesDialog myAES;
-    myAES.setModal(true);
-    myAES.exec();
+    if(!&myAES)
+        qDebug() << "Fail";
+    else{
+        qDebug() << "Good";
+        myAES.setModal(true);
+        myAES.exec();
+    }
 
+}
+
+void MainWindow::on_rc4Button_clicked()
+{
+    RC4Dialog myRC4;
+    myRC4.setModal(true);
+    myRC4.exec();
 }

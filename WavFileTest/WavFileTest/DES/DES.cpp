@@ -339,11 +339,45 @@ quint64 DES::encrypt(quint64 key, quint64 plaintext){
     return ciphertext;
 }
 
+quint64 DES::encrypt(quint64 keyVector[16], quint64 plaintext){
+    quint64 ciphertext;
+    quint32 L, R, Rtemp;
+    for(int i=0; i<16; i++){
+        if(i==0){
+            ciphertext = initialPermutation(plaintext);
+            separateLR(ciphertext, L, R);
+        }
+        Rtemp = mangler(R, keyVector[i]);
+        Rtemp ^= L;
+        L = R;
+        R = Rtemp;
+    }
+    ciphertext = inverseInitialPermutation(L, R);
+    return ciphertext;
+}
+
 quint64 DES::decrypt(quint64 key, quint64 ciphertext){
     quint64 keyVector[16];
     quint64 plaintext;
     quint32 L, R, Rtemp;
     keySchedule(key, keyVector, ENCRYPT);
+    for(int i=0; i<16; i++){
+        if(i==0){
+            plaintext = initialPermutation(ciphertext);
+            separateLR(plaintext, L, R);
+        }
+        Rtemp = mangler(R, keyVector[15-i]);
+        Rtemp = L ^ Rtemp;
+        L = R;
+        R = Rtemp;
+    }
+    plaintext = inverseInitialPermutation(L, R);
+    return plaintext;
+}
+
+quint64 DES::decrypt(quint64 keyVector[16], quint64 ciphertext){
+    quint64 plaintext;
+    quint32 L, R, Rtemp;
     for(int i=0; i<16; i++){
         if(i==0){
             plaintext = initialPermutation(ciphertext);
@@ -364,11 +398,16 @@ bool DES::CipherAudioECB(quint64 myKey, QString filenameIn, QString filenameOut,
     qDebug() << "Starting DES Cipher Encryption... ";
     qDebug() << "==========================================";
     int x, y;
+
+    // Wav Variables
     wavBuffer inputBuffer;
     wavBuffer outputBuffer;
-    quint64 DESBuffer;
     wavParameters parameters;
-    //hasKey = false;
+
+    // DES Variables
+    quint64 DESBuffer;
+    quint64 keyVector[16];
+
     wavRead plainAudio(filenameIn, parameters);
     if(plainAudio.getReadError(error))
         return false;
@@ -376,6 +415,7 @@ bool DES::CipherAudioECB(quint64 myKey, QString filenameIn, QString filenameOut,
     if(cipherAudio.getWriteError(error))
         return false;
 
+    keySchedule(myKey, keyVector, ENCRYPT);
     outputBuffer.resolution = parameters.bitsPerSample;
     outputBuffer.stereoMono = parameters.channelCount;
 
@@ -395,7 +435,7 @@ bool DES::CipherAudioECB(quint64 myKey, QString filenameIn, QString filenameOut,
                     DESBuffer <<= 8;
                 temp = (j+1)%x;
             }
-            DESBuffer = encrypt(myKey, DESBuffer);
+            DESBuffer = encrypt(keyVector, DESBuffer);
             k = i;
             temp = 1;
             for(int j=0; j<8; j++){
@@ -430,11 +470,16 @@ bool DES::DecipherAudioECB(quint64 myKey, QString filenameIn, QString filenameOu
     qDebug() << "Starting DES Cipher Decryption... ";
     qDebug() << "==========================================";
 
+    // Wav Variables
     wavBuffer inputBuffer;
     wavBuffer outputBuffer;
-    quint64 DESBuffer;
     wavParameters parameters;
-    //hasKey = false;
+
+    // DES Variables
+    quint64 DESBuffer;
+    quint64 keyVector[16];
+
+
     wavRead plainAudio(filenameIn, parameters);
     if(plainAudio.getReadError(error))
         return false;
@@ -442,6 +487,7 @@ bool DES::DecipherAudioECB(quint64 myKey, QString filenameIn, QString filenameOu
     if(cipherAudio.getWriteError(error))
         return false;
 
+    keySchedule(myKey, keyVector, ENCRYPT);
     outputBuffer.resolution = parameters.bitsPerSample;
     outputBuffer.stereoMono = parameters.channelCount;
 
@@ -462,7 +508,7 @@ bool DES::DecipherAudioECB(quint64 myKey, QString filenameIn, QString filenameOu
                     DESBuffer <<= 8;
                 temp = (j+1)%x;
             }
-            DESBuffer = decrypt(myKey, DESBuffer);
+            DESBuffer = decrypt(keyVector, DESBuffer);
             k = i;
             temp = 1;
             for(int j=0; j<8; j++){

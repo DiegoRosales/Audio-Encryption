@@ -22,7 +22,6 @@
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QProgressBar>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QRadioButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QVBoxLayout>
 
@@ -35,13 +34,7 @@ public:
     QVBoxLayout *verticalLayout_3;
     QGroupBox *groupBox;
     QHBoxLayout *horizontalLayout_4;
-    QVBoxLayout *verticalLayout;
-    QRadioButton *fileRB;
-    QRadioButton *textRB;
     QVBoxLayout *verticalLayout_2;
-    QHBoxLayout *horizontalLayout;
-    QComboBox *filenameCBox;
-    QPushButton *searchButton;
     QLineEdit *keyEdit;
     QGroupBox *groupBox_2;
     QHBoxLayout *horizontalLayout_2;
@@ -50,7 +43,7 @@ public:
     QGroupBox *groupBox_3;
     QVBoxLayout *verticalLayout_4;
     QProgressBar *progressBar;
-    QLabel *label;
+    QLabel *timeLabel;
     QHBoxLayout *horizontalLayout_3;
     QPushButton *encryptButton;
     QPushButton *decryptButton;
@@ -61,7 +54,7 @@ public:
     {
         if (VigenereDialog->objectName().isEmpty())
             VigenereDialog->setObjectName(QStringLiteral("VigenereDialog"));
-        VigenereDialog->resize(357, 288);
+        VigenereDialog->resize(317, 247);
         verticalLayout_5 = new QVBoxLayout(VigenereDialog);
         verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
         verticalLayout_3 = new QVBoxLayout();
@@ -70,45 +63,8 @@ public:
         groupBox->setObjectName(QStringLiteral("groupBox"));
         horizontalLayout_4 = new QHBoxLayout(groupBox);
         horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
-        verticalLayout = new QVBoxLayout();
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        fileRB = new QRadioButton(groupBox);
-        fileRB->setObjectName(QStringLiteral("fileRB"));
-
-        verticalLayout->addWidget(fileRB);
-
-        textRB = new QRadioButton(groupBox);
-        textRB->setObjectName(QStringLiteral("textRB"));
-        textRB->setChecked(true);
-
-        verticalLayout->addWidget(textRB);
-
-
-        horizontalLayout_4->addLayout(verticalLayout);
-
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
-        horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        filenameCBox = new QComboBox(groupBox);
-        filenameCBox->setObjectName(QStringLiteral("filenameCBox"));
-        QSizePolicy sizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Fixed);
-        sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(filenameCBox->sizePolicy().hasHeightForWidth());
-        filenameCBox->setSizePolicy(sizePolicy);
-        filenameCBox->setEditable(true);
-
-        horizontalLayout->addWidget(filenameCBox);
-
-        searchButton = new QPushButton(groupBox);
-        searchButton->setObjectName(QStringLiteral("searchButton"));
-
-        horizontalLayout->addWidget(searchButton);
-
-
-        verticalLayout_2->addLayout(horizontalLayout);
-
         keyEdit = new QLineEdit(groupBox);
         keyEdit->setObjectName(QStringLiteral("keyEdit"));
 
@@ -126,6 +82,9 @@ public:
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
         filenameCBox_2 = new QComboBox(groupBox_2);
         filenameCBox_2->setObjectName(QStringLiteral("filenameCBox_2"));
+        QSizePolicy sizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Fixed);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(filenameCBox_2->sizePolicy().hasHeightForWidth());
         filenameCBox_2->setSizePolicy(sizePolicy);
         filenameCBox_2->setEditable(true);
@@ -153,10 +112,10 @@ public:
 
         verticalLayout_4->addWidget(progressBar);
 
-        label = new QLabel(groupBox_3);
-        label->setObjectName(QStringLiteral("label"));
+        timeLabel = new QLabel(groupBox_3);
+        timeLabel->setObjectName(QStringLiteral("timeLabel"));
 
-        verticalLayout_4->addWidget(label);
+        verticalLayout_4->addWidget(timeLabel);
 
 
         verticalLayout_5->addWidget(groupBox_3);
@@ -196,13 +155,6 @@ public:
     {
         VigenereDialog->setWindowTitle(QApplication::translate("VigenereDialog", "Vigenere Cipher", 0));
         groupBox->setTitle(QApplication::translate("VigenereDialog", "Key", 0));
-        fileRB->setText(QApplication::translate("VigenereDialog", "File as key", 0));
-        textRB->setText(QApplication::translate("VigenereDialog", "Text as key", 0));
-        filenameCBox->clear();
-        filenameCBox->insertItems(0, QStringList()
-         << QApplication::translate("VigenereDialog", "D:/Test/vCipherTest.wav", 0)
-        );
-        searchButton->setText(QApplication::translate("VigenereDialog", "Browse...", 0));
         keyEdit->setText(QApplication::translate("VigenereDialog", "myKey", 0));
         groupBox_2->setTitle(QApplication::translate("VigenereDialog", "Output file", 0));
         filenameCBox_2->clear();
@@ -211,7 +163,7 @@ public:
         );
         searchButton_2->setText(QApplication::translate("VigenereDialog", "Browse...", 0));
         groupBox_3->setTitle(QApplication::translate("VigenereDialog", "Benchmark", 0));
-        label->setText(QApplication::translate("VigenereDialog", "Execution time: ", 0));
+        timeLabel->setText(QApplication::translate("VigenereDialog", "Execution time: ", 0));
         encryptButton->setText(QApplication::translate("VigenereDialog", "Encrypt", 0));
         decryptButton->setText(QApplication::translate("VigenereDialog", "Decrypt", 0));
         cancelButton->setText(QApplication::translate("VigenereDialog", "Cancel", 0));

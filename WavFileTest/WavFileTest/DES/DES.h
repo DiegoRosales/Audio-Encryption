@@ -20,7 +20,9 @@ public:
     void keySchedule(quint64 key, quint64 keyVector[16], bool encryptDecrypt);
     quint32 mangler(quint32 R, quint64 key);
     quint64 encrypt(quint64 key, quint64 plaintext);
+    quint64 encrypt(quint64 keyVector[16], quint64 plaintext);
     quint64 decrypt(quint64 key, quint64 ciphertext);
+    quint64 decrypt(quint64 keyVector[16], quint64 ciphertext);
     bool CipherAudioECB(quint64 myKey, QString filenameIn, QString filenameOut, QString &error);
     bool DecipherAudioECB(quint64 myKey, QString filenameIn, QString filenameOut, QString &error);
     bool CipherAudioCBC(quint64 myKey, quint64 initVector, QString filenameIn, QString filenameOut, QString &error);

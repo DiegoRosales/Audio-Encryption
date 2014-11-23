@@ -37,12 +37,12 @@ bool vigenereCipher::vCipherAudio(QString key, QString filenameIn, QString filen
         int k = 0;
         for(int i=0; i<inputBuffer.newSamples; i++){
             for(int j=0; j<8; j++){
-                outputBuffer.dataBuffer[i][j] = inputBuffer.dataBuffer[i][j] + key[k].unicode();
+                outputBuffer.dataBuffer[i][j] = inputBuffer.dataBuffer[i][j] + key[i%key.length()].unicode();
             }
-            if(k >= key.length()-1)
-                k=0;
-            else
-                k++;
+//            if(k >= key.length()-1)
+//                k=0;
+//            else
+//                k++;
         }
 
         outputBuffer.newSamples = inputBuffer.newSamples;

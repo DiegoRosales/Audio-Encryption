@@ -28,6 +28,10 @@ private slots:
 
     void on_pushButton_2_clicked();
 
+    void on_BrowseIn_clicked();
+
+    void on_BrowseOut_clicked();
+
 private:
     Ui::CesarDialog *ui;
 };

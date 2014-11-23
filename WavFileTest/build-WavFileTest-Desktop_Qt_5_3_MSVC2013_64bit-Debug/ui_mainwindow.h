@@ -14,7 +14,6 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QComboBox>
-#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
@@ -39,8 +38,6 @@ public:
     QLabel *label;
     QComboBox *addressEdit;
     QPushButton *browsePushButton;
-    QHBoxLayout *horizontalLayout_3;
-    QPushButton *liveButton;
     QSpacerItem *horizontalSpacer;
     QHBoxLayout *horizontalLayout;
     QGroupBox *groupBox;
@@ -60,13 +57,14 @@ public:
     QRadioButton *mlPlotRadioButton;
     QRadioButton *dshOffsetRadioButton;
     QGroupBox *groupBox_2;
-    QGridLayout *gridLayout;
+    QHBoxLayout *horizontalLayout_3;
+    QVBoxLayout *verticalLayout_5;
     QPushButton *cesarButton;
     QPushButton *vigenereButton;
-    QPushButton *aesButton;
+    QVBoxLayout *verticalLayout_6;
     QPushButton *desButton;
+    QPushButton *aesButton;
     QPushButton *rc4Button;
-    QPushButton *rsaButton;
     QMenuBar *menuBar;
     QStatusBar *statusBar;
 
@@ -74,7 +72,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(388, 312);
+        MainWindow->resize(388, 313);
         QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -114,20 +112,9 @@ public:
 
         verticalLayout_4->addLayout(horizontalLayout_2);
 
-        horizontalLayout_3 = new QHBoxLayout();
-        horizontalLayout_3->setSpacing(6);
-        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
-        liveButton = new QPushButton(centralWidget);
-        liveButton->setObjectName(QStringLiteral("liveButton"));
-
-        horizontalLayout_3->addWidget(liveButton);
-
         horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        horizontalLayout_3->addItem(horizontalSpacer);
-
-
-        verticalLayout_4->addLayout(horizontalLayout_3);
+        verticalLayout_4->addItem(horizontalSpacer);
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setSpacing(6);
@@ -153,6 +140,11 @@ public:
 
         groupBox_3 = new QGroupBox(centralWidget);
         groupBox_3->setObjectName(QStringLiteral("groupBox_3"));
+        QSizePolicy sizePolicy2(QSizePolicy::Minimum, QSizePolicy::MinimumExpanding);
+        sizePolicy2.setHorizontalStretch(0);
+        sizePolicy2.setVerticalStretch(0);
+        sizePolicy2.setHeightForWidth(groupBox_3->sizePolicy().hasHeightForWidth());
+        groupBox_3->setSizePolicy(sizePolicy2);
         horizontalLayout_4 = new QHBoxLayout(groupBox_3);
         horizontalLayout_4->setSpacing(6);
         horizontalLayout_4->setContentsMargins(11, 11, 11, 11);
@@ -186,6 +178,8 @@ public:
 
         groupBox_4 = new QGroupBox(centralWidget);
         groupBox_4->setObjectName(QStringLiteral("groupBox_4"));
+        sizePolicy2.setHeightForWidth(groupBox_4->sizePolicy().hasHeightForWidth());
+        groupBox_4->setSizePolicy(sizePolicy2);
         horizontalLayout_5 = new QHBoxLayout(groupBox_4);
         horizontalLayout_5->setSpacing(6);
         horizontalLayout_5->setContentsMargins(11, 11, 11, 11);
@@ -220,51 +214,67 @@ public:
 
         groupBox_2 = new QGroupBox(centralWidget);
         groupBox_2->setObjectName(QStringLiteral("groupBox_2"));
-        gridLayout = new QGridLayout(groupBox_2);
-        gridLayout->setSpacing(6);
-        gridLayout->setContentsMargins(11, 11, 11, 11);
-        gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        QSizePolicy sizePolicy3(QSizePolicy::MinimumExpanding, QSizePolicy::Preferred);
+        sizePolicy3.setHorizontalStretch(0);
+        sizePolicy3.setVerticalStretch(0);
+        sizePolicy3.setHeightForWidth(groupBox_2->sizePolicy().hasHeightForWidth());
+        groupBox_2->setSizePolicy(sizePolicy3);
+        horizontalLayout_3 = new QHBoxLayout(groupBox_2);
+        horizontalLayout_3->setSpacing(6);
+        horizontalLayout_3->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
+        verticalLayout_5 = new QVBoxLayout();
+        verticalLayout_5->setSpacing(6);
+        verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
         cesarButton = new QPushButton(groupBox_2);
         cesarButton->setObjectName(QStringLiteral("cesarButton"));
-        sizePolicy1.setHeightForWidth(cesarButton->sizePolicy().hasHeightForWidth());
-        cesarButton->setSizePolicy(sizePolicy1);
+        QSizePolicy sizePolicy4(QSizePolicy::Minimum, QSizePolicy::Fixed);
+        sizePolicy4.setHorizontalStretch(0);
+        sizePolicy4.setVerticalStretch(0);
+        sizePolicy4.setHeightForWidth(cesarButton->sizePolicy().hasHeightForWidth());
+        cesarButton->setSizePolicy(sizePolicy4);
 
-        gridLayout->addWidget(cesarButton, 0, 0, 1, 1);
+        verticalLayout_5->addWidget(cesarButton);
 
         vigenereButton = new QPushButton(groupBox_2);
         vigenereButton->setObjectName(QStringLiteral("vigenereButton"));
-        sizePolicy1.setHeightForWidth(vigenereButton->sizePolicy().hasHeightForWidth());
-        vigenereButton->setSizePolicy(sizePolicy1);
+        sizePolicy4.setHeightForWidth(vigenereButton->sizePolicy().hasHeightForWidth());
+        vigenereButton->setSizePolicy(sizePolicy4);
 
-        gridLayout->addWidget(vigenereButton, 1, 0, 1, 1);
+        verticalLayout_5->addWidget(vigenereButton);
+
+
+        horizontalLayout_3->addLayout(verticalLayout_5);
+
+        verticalLayout_6 = new QVBoxLayout();
+        verticalLayout_6->setSpacing(6);
+        verticalLayout_6->setObjectName(QStringLiteral("verticalLayout_6"));
+        desButton = new QPushButton(groupBox_2);
+        desButton->setObjectName(QStringLiteral("desButton"));
+        sizePolicy4.setHeightForWidth(desButton->sizePolicy().hasHeightForWidth());
+        desButton->setSizePolicy(sizePolicy4);
+
+        verticalLayout_6->addWidget(desButton);
 
         aesButton = new QPushButton(groupBox_2);
         aesButton->setObjectName(QStringLiteral("aesButton"));
-        sizePolicy1.setHeightForWidth(aesButton->sizePolicy().hasHeightForWidth());
-        aesButton->setSizePolicy(sizePolicy1);
+        sizePolicy4.setHeightForWidth(aesButton->sizePolicy().hasHeightForWidth());
+        aesButton->setSizePolicy(sizePolicy4);
 
-        gridLayout->addWidget(aesButton, 1, 1, 1, 1);
+        verticalLayout_6->addWidget(aesButton);
 
-        desButton = new QPushButton(groupBox_2);
-        desButton->setObjectName(QStringLiteral("desButton"));
-        sizePolicy1.setHeightForWidth(desButton->sizePolicy().hasHeightForWidth());
-        desButton->setSizePolicy(sizePolicy1);
 
-        gridLayout->addWidget(desButton, 0, 1, 1, 1);
+        horizontalLayout_3->addLayout(verticalLayout_6);
 
         rc4Button = new QPushButton(groupBox_2);
         rc4Button->setObjectName(QStringLiteral("rc4Button"));
-        sizePolicy1.setHeightForWidth(rc4Button->sizePolicy().hasHeightForWidth());
-        rc4Button->setSizePolicy(sizePolicy1);
+        QSizePolicy sizePolicy5(QSizePolicy::Minimum, QSizePolicy::Preferred);
+        sizePolicy5.setHorizontalStretch(0);
+        sizePolicy5.setVerticalStretch(0);
+        sizePolicy5.setHeightForWidth(rc4Button->sizePolicy().hasHeightForWidth());
+        rc4Button->setSizePolicy(sizePolicy5);
 
-        gridLayout->addWidget(rc4Button, 0, 2, 1, 1);
-
-        rsaButton = new QPushButton(groupBox_2);
-        rsaButton->setObjectName(QStringLiteral("rsaButton"));
-        sizePolicy1.setHeightForWidth(rsaButton->sizePolicy().hasHeightForWidth());
-        rsaButton->setSizePolicy(sizePolicy1);
-
-        gridLayout->addWidget(rsaButton, 1, 2, 1, 1);
+        horizontalLayout_3->addWidget(rc4Button);
 
 
         verticalLayout_4->addWidget(groupBox_2);
@@ -299,7 +309,6 @@ public:
         );
         addressEdit->setCurrentText(QApplication::translate("MainWindow", "D:/Test/Test Files/440SineWave8bit.wav", 0));
         browsePushButton->setText(QApplication::translate("MainWindow", "Browse...", 0));
-        liveButton->setText(QApplication::translate("MainWindow", "Live encryption", 0));
         groupBox->setTitle(QApplication::translate("MainWindow", "View audio data", 0));
         getInfoPushButton->setText(QApplication::translate("MainWindow", "Get .wav info", 0));
         viewPushButton->setText(QApplication::translate("MainWindow", "View raw data", 0));
@@ -314,10 +323,9 @@ public:
         groupBox_2->setTitle(QApplication::translate("MainWindow", "Encryption", 0));
         cesarButton->setText(QApplication::translate("MainWindow", "Caesar Cipher", 0));
         vigenereButton->setText(QApplication::translate("MainWindow", "Vigenere Cipher", 0));
-        aesButton->setText(QApplication::translate("MainWindow", "AES", 0));
         desButton->setText(QApplication::translate("MainWindow", "DES", 0));
+        aesButton->setText(QApplication::translate("MainWindow", "AES", 0));
         rc4Button->setText(QApplication::translate("MainWindow", "RC4", 0));
-        rsaButton->setText(QApplication::translate("MainWindow", "RSA", 0));
     } // retranslateUi
 
 };

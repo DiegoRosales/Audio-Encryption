@@ -16,6 +16,7 @@ include(CesarCipher/CesarCipher.pri)
 include(VigenereCipher/VigenereCipher.pri)
 include(DES/DES.pri)
 include(AES/AES.pri)
+include(RC4/RC4.pri)
 
 
 SOURCES += main.cpp\

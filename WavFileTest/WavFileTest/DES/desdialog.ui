@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>337</width>
-    <height>414</height>
+    <height>385</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -17,7 +17,7 @@
    </sizepolicy>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Data Encryption Standard</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_7">
    <item>
@@ -113,7 +113,7 @@
      <item>
       <widget class="QGroupBox" name="groupBox_2">
        <property name="title">
-        <string>Encryption format</string>
+        <string>Mode of operation</string>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
@@ -207,7 +207,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="label_2">
+       <widget class="QLabel" name="timeLabel">
         <property name="text">
          <string>Execution time: </string>
         </property>
@@ -249,20 +249,7 @@
             </sizepolicy>
            </property>
            <property name="text">
-            <string>Generate Cross-correlation  Code</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="pushButton">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="text">
-            <string>Generate Autocorrelation Code</string>
+            <string>Matlab Code for Statistical Analysis</string>
            </property>
           </widget>
          </item>
@@ -313,10 +300,7 @@
   <zorder>groupBox</zorder>
   <zorder>groupBox_3</zorder>
   <zorder>groupBox_4</zorder>
-  <zorder>groupBox_2</zorder>
   <zorder></zorder>
-  <zorder>pushButton_2</zorder>
-  <zorder>verticalSpacer_2</zorder>
  </widget>
  <resources/>
  <connections>

@@ -20,11 +20,18 @@ void VigenereDialog::setFileName(QString fileName){
 void VigenereDialog::on_encryptButton_clicked(){
     vigenereCipher myVigenere;
     connect(&myVigenere, SIGNAL(progressChange(int)), this, SLOT(setProgress(int)));
+
+    QString time = "Execution time: ";
+    QTime mTime;
+    mTime.start();
     if(!myVigenere.vCipherAudio(ui->keyEdit->text(), fileName, ui->filenameCBox_2->itemText(ui->filenameCBox_2->currentIndex()), error))
         QMessageBox::warning(this, "Error", error);
-    else
+    else{
+        time.append(QString::number(mTime.elapsed()));
+        time.append(" ms");
+        ui->timeLabel->setText(time);
         QMessageBox::information(this, "Operation completed", "Encryption completed succesfully");
-
+    }
 }
 
 void VigenereDialog::on_searchButton_2_clicked()
@@ -44,9 +51,16 @@ void VigenereDialog::on_decryptButton_clicked()
 {
     vigenereCipher myVigenere;
     connect(&myVigenere, SIGNAL(progressChange(int)), this, SLOT(setProgress(int)));
+
+    QString time = "Execution time: ";
+    QTime mTime;
+    mTime.start();
     if(!myVigenere.vDecipherAudio(ui->keyEdit->text(), fileName, ui->filenameCBox_2->itemText(ui->filenameCBox_2->currentIndex()), error))
         QMessageBox::warning(this, "Error", error);
-    else
+    else{
+        time.append(QString::number(mTime.elapsed()));
+        time.append(" ms");
+        ui->timeLabel->setText(time);
         QMessageBox::information(this, "Operation completed", "Decryption completed succesfully");
-
+    }
 }

@@ -172,6 +172,7 @@ Makefile: ..\WavFileTest\WavFileTest.pro C:\Qt\Qt5.3.2\5.3\msvc2013_64\mkspecs\w
 		..\WavFileTest\VigenereCipher\VigenereCipher.pri \
 		..\WavFileTest\DES\DES.pri \
 		..\WavFileTest\AES\AES.pri \
+		..\WavFileTest\RC4\RC4.pri \
 		C:\Qt\Qt5.3.2\5.3\msvc2013_64\mkspecs\features\resolve_config.prf \
 		C:\Qt\Qt5.3.2\5.3\msvc2013_64\mkspecs\features\exclusive_builds_post.prf \
 		C:\Qt\Qt5.3.2\5.3\msvc2013_64\mkspecs\features\default_post.prf \
@@ -296,6 +297,7 @@ C:\Qt\Qt5.3.2\5.3\msvc2013_64\mkspecs\features\win32\default_pre.prf:
 ..\WavFileTest\VigenereCipher\VigenereCipher.pri:
 ..\WavFileTest\DES\DES.pri:
 ..\WavFileTest\AES\AES.pri:
+..\WavFileTest\RC4\RC4.pri:
 C:\Qt\Qt5.3.2\5.3\msvc2013_64\mkspecs\features\resolve_config.prf:
 C:\Qt\Qt5.3.2\5.3\msvc2013_64\mkspecs\features\exclusive_builds_post.prf:
 C:\Qt\Qt5.3.2\5.3\msvc2013_64\mkspecs\features\default_post.prf:

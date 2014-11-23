@@ -32,7 +32,7 @@ public:
     {
         if (codeDialog->objectName().isEmpty())
             codeDialog->setObjectName(QStringLiteral("codeDialog"));
-        codeDialog->resize(400, 300);
+        codeDialog->resize(454, 354);
         verticalLayout = new QVBoxLayout(codeDialog);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         plainTextEdit = new QPlainTextEdit(codeDialog);
@@ -57,7 +57,7 @@ public:
 
     void retranslateUi(QDialog *codeDialog)
     {
-        codeDialog->setWindowTitle(QApplication::translate("codeDialog", "Dialog", 0));
+        codeDialog->setWindowTitle(QApplication::translate("codeDialog", "Matlab Code", 0));
     } // retranslateUi
 
 };

@@ -55,7 +55,7 @@ public:
     QGroupBox *groupBox_3;
     QVBoxLayout *verticalLayout_3;
     QProgressBar *progressBar;
-    QLabel *label_2;
+    QLabel *timeLabel;
     QHBoxLayout *horizontalLayout_5;
     QVBoxLayout *verticalLayout_5;
     QHBoxLayout *horizontalLayout_3;
@@ -63,7 +63,6 @@ public:
     QPushButton *decryptPB;
     QVBoxLayout *verticalLayout_4;
     QPushButton *pushButton_2;
-    QPushButton *pushButton;
     QSpacerItem *horizontalSpacer;
     QVBoxLayout *verticalLayout_6;
     QSpacerItem *verticalSpacer_2;
@@ -73,7 +72,7 @@ public:
     {
         if (DESdialog->objectName().isEmpty())
             DESdialog->setObjectName(QStringLiteral("DESdialog"));
-        DESdialog->resize(337, 414);
+        DESdialog->resize(337, 385);
         QSizePolicy sizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Preferred);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -192,10 +191,10 @@ public:
 
         verticalLayout_3->addWidget(progressBar);
 
-        label_2 = new QLabel(groupBox_3);
-        label_2->setObjectName(QStringLiteral("label_2"));
+        timeLabel = new QLabel(groupBox_3);
+        timeLabel->setObjectName(QStringLiteral("timeLabel"));
 
-        verticalLayout_3->addWidget(label_2);
+        verticalLayout_3->addWidget(timeLabel);
 
 
         verticalLayout_7->addWidget(groupBox_3);
@@ -228,13 +227,6 @@ public:
 
         verticalLayout_4->addWidget(pushButton_2);
 
-        pushButton = new QPushButton(DESdialog);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-        sizePolicy1.setHeightForWidth(pushButton->sizePolicy().hasHeightForWidth());
-        pushButton->setSizePolicy(sizePolicy1);
-
-        verticalLayout_4->addWidget(pushButton);
-
 
         verticalLayout_5->addLayout(verticalLayout_4);
 
@@ -265,8 +257,6 @@ public:
         groupBox->raise();
         groupBox_3->raise();
         groupBox_4->raise();
-        groupBox_2->raise();
-        pushButton_2->raise();
 
         retranslateUi(DESdialog);
         QObject::connect(ECB_RB, SIGNAL(toggled(bool)), initVectorEdit, SLOT(setDisabled(bool)));
@@ -277,7 +267,7 @@ public:
 
     void retranslateUi(QDialog *DESdialog)
     {
-        DESdialog->setWindowTitle(QApplication::translate("DESdialog", "Dialog", 0));
+        DESdialog->setWindowTitle(QApplication::translate("DESdialog", "Data Encryption Standard", 0));
         groupBox_4->setTitle(QApplication::translate("DESdialog", "Input File", 0));
         comboBox_2->clear();
         comboBox_2->insertItems(0, QStringList()
@@ -294,7 +284,7 @@ public:
          << QApplication::translate("DESdialog", "D:/Test/DESCipherTest.wav", 0)
         );
         browsePButton->setText(QApplication::translate("DESdialog", "Browse...", 0));
-        groupBox_2->setTitle(QApplication::translate("DESdialog", "Encryption format", 0));
+        groupBox_2->setTitle(QApplication::translate("DESdialog", "Mode of operation", 0));
         ECB_RB->setText(QApplication::translate("DESdialog", "ECB (Electronic Codebook)", 0));
         CBC_RB->setText(QApplication::translate("DESdialog", "CBC (Cipher Block Chaining)", 0));
         CFB_RB->setText(QApplication::translate("DESdialog", "CFB (Cipher Feedback)", 0));
@@ -303,11 +293,10 @@ public:
         label->setText(QApplication::translate("DESdialog", "Initialization vector (HEX)", 0));
         initVectorEdit->setText(QApplication::translate("DESdialog", "0xCE27CB141098FEB0", 0));
         groupBox_3->setTitle(QApplication::translate("DESdialog", "Progress", 0));
-        label_2->setText(QApplication::translate("DESdialog", "Execution time: ", 0));
+        timeLabel->setText(QApplication::translate("DESdialog", "Execution time: ", 0));
         encryptPB->setText(QApplication::translate("DESdialog", "Encrypt", 0));
         decryptPB->setText(QApplication::translate("DESdialog", "Decrypt", 0));
-        pushButton_2->setText(QApplication::translate("DESdialog", "Generate Cross-correlation  Code", 0));
-        pushButton->setText(QApplication::translate("DESdialog", "Generate Autocorrelation Code", 0));
+        pushButton_2->setText(QApplication::translate("DESdialog", "Matlab Code for Statistical Analysis", 0));
         pushButton_3->setText(QApplication::translate("DESdialog", "Cancel", 0));
     } // retranslateUi
 
