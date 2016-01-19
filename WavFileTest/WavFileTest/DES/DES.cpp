@@ -1,4 +1,4 @@
-#include "des.h"
+#include "DES.h"
 
 DES::DES()
 {

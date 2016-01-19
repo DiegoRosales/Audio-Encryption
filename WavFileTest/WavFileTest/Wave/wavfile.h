@@ -8,6 +8,7 @@
 #include <QString>
 #include <QFile>
 #include <QDebug>
+#include <QDataStream>
 
 class wavBuffer
 {
