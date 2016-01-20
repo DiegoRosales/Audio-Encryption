@@ -11,10 +11,18 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = AudioEncryption
 TEMPLATE = app
 
+include(Wave/Wave.pri)
+include(CesarCipher/CesarCipher.pri)
+include(VigenereCipher/VigenereCipher.pri)
+include(DES/DES.pri)
+include(AES/AES.pri)
+include(RC4/RC4.pri)
+
 
 SOURCES += main.cpp\
         mainwindow.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+
