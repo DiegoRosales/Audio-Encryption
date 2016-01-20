@@ -43,7 +43,7 @@ Temporary Items
 .apdisk
 
 # Qt user files (not sharable between workstations)
-.pro.user
+.pro.user*
 
 # Built files
 build-*
